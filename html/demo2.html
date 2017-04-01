@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/common-290127a303.css">
+    <link rel="stylesheet" href="../static/css/graph.css">
+    <link rel="stylesheet" href="../static/css/fengdian.css">
+    <link type="text/css" rel="stylesheet" href="../common/frame/env_weather/weather-09ba6b4a64.css">
+    <script src="../../angellibtestRepo/Develop/angelwxapp/pages/index/index.js"></script>
+</head>
+<body>
+<div class="env-left" id="env-left">
+    <!--<div class="collapse-btn"></div>-->
+    <div class="env-app-logo"></div>
+    <div id="env_wf_info" class="env-wf-info">
+        <table>
+            <tbody>
+            <tr title="">
+                <td class="wf-icon"
+                    style="background: url(../project/images/partconnect_27x28.png) 50% 50% no-repeat;"></td>
+                <td id="wf_name" class="wf-name"><span style="padding-top:5px;">xx</span></td>
+                <td class="toggle-arrow"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="env_wf_time" class="env-wf-time">
+        <table>
+            <tbody>
+            <tr title="">
+                <td id="wf_time_icon" class="wf-weather-icon weather weather-icon-duoyun" title="多云"></td>
+                <td id="wf_time" class="wf-time">2017-02-13 20:35:49</td>
+                <td class="wf-time-other"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="env_menu" class="env-menu" style="min-height: 550px;">
+        <ul class="menu">
+            <li class="level1 float-menu-wrap">
+                <a href="javascript:void(0);" show="1" class="float-menu-lv1" level="1" priv_type="-1"><span class="level1-icon"
+                                                                                               style="background:url(../project/images/menu/scada_graph.png) no-repeat;"></span>电</a>
+                <ul class="float-menu-list">
+                    <li><a href="javascript:void(0)"><span class="level1-icon"
+                                                           style="background:url(../project/images/menu/scada_graph.png) no-repeat;"></span>水</a>
+                    </li>
+                    <li><a href="javascript:void(0)"><span class="level1-icon"
+                                                           style="background:url(../project/images/menu/scada_graph.png) no-repeat;"></span>天然气
+                    </a></li>
+                    <li><a href="javascript:void(0)"><span class="level1-icon"
+                                                           style="background:url(../project/images/menu/scada_graph.png) no-repeat;"></span>油</a>
+                    </li>
+                    <li><a href="javascript:void(0)"><span class="level1-icon"
+                                                           style="background:url(../project/images/menu/scada_graph.png) no-repeat;"></span>生物质</a>
+                    </li>
+                    <li><a href="javascript:void(0)"><span class="level1-icon"
+                                                           style="background:url(../project/images/menu/scada_graph.png) no-repeat;"></span>人工煤气</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="level1"><a show="1" id="alarm_view" title="用能概览" class="" level="1" priv_type="-1"
+                                  href=""><span class="level1-icon"
+                                                                       icon="../project/images/menu/scada_alarm.png"
+                                                                       style="background:url(../project/images/menu/scada_alarm.png) no-repeat;"></span>用能概览</a>
+            </li>
+            <li class="level1">
+                <a show="1" id="graph_view" title="用能分析" class="" level="1" priv_type="-1"
+                   href="javascript:void(0);"><span class="level1-icon" icon="../project/images/menu/scada_graph.png"
+                                                    style="background:url(../project/images/menu/scada_graph.png) no-repeat;"></span>用能分析</a>
+                <ul class="level2 level2-hidden level-hidden" style="display:block;">
+                    <li>
+                        <a show="1" id="dash_board" title="数据查询" class="curr-level2" level="2" priv_type="-1" href="" style="color: rgb(220, 93, 3);">
+                            <span class="level2-icon" icon="../project/images/menu/scada_wtglist.png"  style="background:url(../project/images/menu/scada_wtglist_hover.png) no-repeat;" is_hover="false" hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>
+                            数据查询
+                        </a>
+                    </li>
+                    <li><a show="1" id="INV_list" title="基本分析" class="" level="2" priv_type="-1"
+                           href=""
+                           style="color: rgb(149, 149, 149); display: block;"><span class="level2-icon"
+                                                                                    icon="../project/images/menu/scada_map.png"
+                                                                                    style="background:url(../project/images/menu/scada_map.png) no-repeat;"
+                                                                                    is_hover="false"
+                                                                                    hover_icon="../project/images/menu/scada_map_hover.png"></span>基本分析</a>
+                    </li>
+                    <li><a show="1" id="" title="同环比分析" class="" level="2" priv_type="-1"
+                           href=""
+                           style="color: rgb(149, 149, 149); display: block;"><span class="level2-icon"
+                                                                                    icon="../project/images/menu/scada_map.png"
+                                                                                    style="background:url(../project/images/menu/scada_map.png) no-repeat;"
+                                                                                    is_hover="false"
+                                                                                    hover_icon="../project/images/menu/scada_map_hover.png"></span>同环比分析</a>
+                    </li>
+                    <li><a show="1" id="" title="对比分析" class="" level="2" priv_type="-1"
+                           href=""
+                           style="color: rgb(149, 149, 149); display: block;"><span class="level2-icon"
+                                                                                    icon="../project/images/menu/scada_map.png"
+                                                                                    style="background:url(../project/images/menu/scada_map.png) no-repeat;"
+                                                                                    is_hover="false"
+                                                                                    hover_icon="../project/images/menu/scada_map_hover.png"></span>对比分析</a>
+                    </li>
+                    <li><a show="1" id="" title="排名统计" class="" level="2" priv_type="-1"
+                           href=""
+                           style="color: rgb(149, 149, 149); display: block;"><span class="level2-icon"
+                                                                                    icon="../project/images/menu/scada_map.png"
+                                                                                    style="background:url(../project/images/menu/scada_map.png) no-repeat;"
+                                                                                    is_hover="false"
+                                                                                    hover_icon="../project/images/menu/scada_map_hover.png"></span>排名统计</a>
+                    </li>
+                    <li><a show="1" id="" title="用能足迹" class="" level="2" priv_type="-1"
+                           href=""
+                           style="color: rgb(149, 149, 149); display: block;"><span class="level2-icon"
+                                                                                    icon="../project/images/menu/scada_map.png"
+                                                                                    style="background:url(../project/images/menu/scada_map.png) no-repeat;"
+                                                                                    is_hover="false"
+                                                                                    hover_icon="../project/images/menu/scada_map_hover.png"></span>用能足迹</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="level1"><a show="1" id="" title="高级分析" class="" level="1" priv_type="-1"
+                                  href="javascript:void(0);"><span class="level1-icon"
+                                                                   icon="../project/images/menu/scada_useradmin.png"
+                                                                   style="background:url(../project/images/menu/scada_useradmin.png) no-repeat;"></span>高级分析</a>
+                <ul class="level2 level2-hidden level-hidden" style="display:none;">
+                    <li><a show="1" id="" title="损耗分析" class="" level="2" priv_type="-1"
+                           href="" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>损耗分析</a>
+                    </li>
+                    <li><a show="1" id="" title="需量分析" class="" level="2" priv_type="-1"
+                           href="" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>需量分析</a>
+                    </li>
+                    <li><a show="1" id="" title="环境分析" class="" level="2" priv_type="-1"
+                           href="" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>环境分析</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="level1"><a show="1" id="" title="计费管理" class="" level="1" priv_type="-1"
+                                  href="javascript:void(0);"><span class="level1-icon"
+                                                                   icon="../project/images/menu/scada_useradmin.png"
+                                                                   style="background:url(../project/images/menu/scada_useradmin.png) no-repeat;"></span>计费管理</a>
+                <ul class="level2 level2-hidden level-hidden" style="display:none;">
+                    <li><a show="1" id="" title="计费分析" class="" level="2" priv_type="-1"
+                           href="" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>计费分析</a>
+                    </li>
+                    <li><a show="1" id="" title="电表开户" class="" level="2" priv_type="-1"
+                           href="" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>电表开户</a>
+                    </li>
+                    <li><a show="1" id="" title="客户管理" class="" level="2" priv_type="-1"
+                           href="" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>客户管理</a>
+                    </li>
+                    <li><a show="1" id="" title="当月费用" class="" level="2" priv_type="-1"
+                           href="" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>当月费用</a>
+                    </li>
+                    <li><a show="1" id="" title="历史账单" class="" level="2" priv_type="-1"
+                           href="" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>历史账单</a>
+                    </li>
+                </ul>
+            </li>
+            <!--节能管理-->
+            <li class="level1"><a show="1" id="" title="节能管理" class="" level="1" priv_type="-1"
+                                  href="javascript:void(0);"><span class="level1-icon"
+                                                                   icon="../project/images/menu/scada_useradmin.png"
+                                                                   style="background:url(../project/images/menu/scada_useradmin.png) no-repeat;"></span>节能管理</a>
+                <ul class="level2 level2-hidden level-hidden" style="display:none;">
+                    <li><a show="1" id="" title="基准分析" class="" level="2" priv_type="-1"
+                           href="" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>基准分析</a>
+                    </li>
+                    <li><a show="1" id="" title="用能评估" class="" level="2" priv_type="-1"
+                           href="" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>用能评估</a>
+                    </li>
+                </ul>
+            </li>
+            <!--报警管理-->
+            <li class="level1"><a show="1" id="" title="报警管理" class="" level="1" priv_type="-1"
+                                  href="javascript:void(0);"><span class="level1-icon"
+                                                                   icon="../project/images/menu/scada_useradmin.png"
+                                                                   style="background:url(../project/images/menu/scada_useradmin.png) no-repeat;"></span>报警管理</a>
+                <ul class="level2 level2-hidden level-hidden" style="display:none;">
+                    <li><a show="1" id="" title="实时监测" class="" level="2" priv_type="-1"
+                           href="" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>实时监测</a>
+                    </li>
+                    <li><a show="1" id="" title="限值设置" class="" level="2" priv_type="-1"
+                           href="" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>限值设置</a>
+                    </li>
+                    <li><a show="1" id="" title="时间设置" class="" level="2" priv_type="-1"
+                           href="" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>时间设置</a>
+                    </li>
+                    <li><a show="1" id="" title="报警列表" class="" level="2" priv_type="-1"
+                           href="" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>报警列表</a>
+                    </li>
+                </ul>
+            </li>
+            <!--系统管理-->
+            <li class="level1"><a show="1" id="" title="系统管理" class="" level="1" priv_type="-1"
+                                  href="javascript:void(0);"><span class="level1-icon"
+                                                                   icon="../project/images/menu/scada_useradmin.png"
+                                                                   style="background:url(../project/images/menu/scada_useradmin.png) no-repeat;"></span>系统管理</a>
+                <ul class="level2 level2-hidden level-hidden" style="display:none;">
+                    <li><a show="1" id="" title="用户管理" class="" level="2" priv_type="-1"
+                           href="" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>用户管理</a>
+                    </li>
+                    <li><a show="1" id="" title="资产管理" class="" level="2" priv_type="-1"
+                           href="" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>资产管理</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="env_left_bottom" class="env-left-bottom">
+        <div id="env_copyright" class="env-copyright">Copyright© 2012-2017 保留所有权利</div>
+    </div>
+
+
+    <div id="envNavTreeDiv" class="envNavTree">
+        <div class="envAllTreeSearchBoxCon">
+            <!--<div class="envAllTreeSearchBox">-->
+            <!--<input type="text" id="key" name="" value="" autocomplete="on" placeholder="">-->
+            <!--<div><i></i></div>-->
+            <!--</div>-->
+        </div>
+        <div class="envNavTreeIe" style="height:534px;">
+            <ul id="envNavTree" class="ztree">
+            </ul>
+        </div>
+        <iframe class="envision_mask" scrolling="no" frameborder="0"></iframe>
+    </div>
+</div>
+<div class="env-right" id="env_right">
+    <div id="env_r_cnt" class="env-r-cnt">
+        <div class="env-web-switch" style="font-size: 15px">
+            <!--<div class="collapse-btn"></div>-->
+            <!--<div class="env-web-switch-left">-->
+                <!--<ul class="env-web-switch-ul env-web-switch-left-ul">-->
+                    <!--<li><span><a en="SCADA" icon="../project/images/menu/scada_wtglist.png" id="ApolloOS" ifshow="1"-->
+                    <!--level="0" openmode="1" parent="priv_type=-1" seq="27" type="2"-->
+                    <!--href="javascript:void(0);"  target="_blank"-->
+                    <!--class="env-web-switch-item env-web-switch-item-selected">1</a></span></li>-->
+                    <!--<li><span><a en="IM" icon="../project/images/menu/scada_wtglist.png" id="ApolloIM" ifshow="1" level="0"-->
+                    <!--openmode="1" parent="priv_type=-1" seq="28" type="2" href="javascript:void(0);"-->
+                    <!--zh="绩效评估" target="_blank" class="env-web-switch-item">绩效评估</a></span></li>-->
+                    <!--<li><span><a en="REPORT" icon="../project/images/menu/scada_wtglist.png" id="ApolloRT" ifshow="1"-->
+                    <!--level="0" openmode="1" parent="priv_type=-1" seq="40" type="2"-->
+                    <!--href="javascript:void(0);" zh="报表" target="_blank"-->
+                    <!--class="env-web-switch-item">报表</a></span></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--头部滚动提示-->
+            <div class="top-notice">
+                <ul>
+                    <li><a href="">1头部信息滚动头部信息滚动头部信息滚动头部信息滚动头部信息滚动1</a></li>
+                    <li><a href="">2头部信息滚动头部信息滚动头部信息滚动头部信息滚动头部信息滚动12</a></li>
+                    <li><a href="">3头部信息滚动头部信息滚动头部信息滚动头部信息滚动头部信息滚动13</a></li>
+                </ul>
+            </div>
+            <div class="env-web-switch-right">
+                <ul class="env-web-switch-ul env-web-switch-right-ul">
+                    <li><span class="env-web-switch-user env-web-switch-user-drop"><span>xxx</span></span>
+                        <div class="sub" style="display: none;">
+                            <ul>
+                                <!--<li><a displayname="信息维护"-->
+                                <!--href="http://apollo.envisioncn.com/portal/index.html?logout=logout&amp;return_url=http://apollo.envisioncn.com/v_graph/v_graph.html?first_svg=JYSN%2FEnFarmDashboard%20JYSN&amp;_v=1482198135015&amp;from_portal=1"-->
+                                <!--zh="信息维护">信息维护</a></li>-->
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="env-web-switch-vert"><span></span></li>
+                    <li><span class="env-web-switch-logout">注销</span></li>
+                </ul>
+            </div>
+            <div class="env-web-switch-clear"></div>
+        </div>
+
+        <div id="center" style="visibility: visible; min-width: 1079px;">
+            <div class="search-wrapper">
+                <div class="wv_search ">
+
+                    <ul class="range_switch_btns">
+                        <li class="range_switch_btn btn_on" data-type="day">日</li>
+                        <li class="range_switch_btn" data-type="week">周</li>
+                        <li class="range_switch_btn" data-type="month">月</li>
+                        <li class="range_switch_btn" data-type="year">年</li>
+                        <li class="range_switch_btn"  data-type="rang" id="rang">起止时间</li>
+                    </ul>
+                    <div class="vw_fl" id="datePickerBox">
+                        <input id="type-day" class="Wdate Wdate date_picker_97" type="text" onfocus="WdatePicker({maxDate:'%y-%M-%d'})"/>
+                    </div>
+                         <textarea class="textarea-hidden" id="textarea-day"><input id="type-day" class="Wdate Wdate date_picker_97" type="text" onfocus="WdatePicker({maxDate:'%y-%M-%d'})"/></textarea>
+                    <textarea class="textarea-hidden" id="textarea-week"><div class=" show-week-wrapper">
+                        <input type="text" id="d122_1" class="date_picker_97"/>
+                        <input id="type-week" class="Wdate Wdate date_picker_97" type="text" onFocus="WdatePicker({isShowWeek:true,maxDate:'%y-%M-%d',onpicked:function() {$dp.$('d122_1').value=$dp.cal.getP('y','yyyy')+'，第'+$dp.cal.getP('W','W')+'周';}})"/></div></textarea>
+                        <textarea class="textarea-hidden" id="textarea-month"><input type="text" class="Wdate Wdate date_picker_97" id="type-month" onfocus="WdatePicker({dateFmt:'yyyy年M月',minDate:'2008-2',maxDate:'%y-%M'})"/></textarea>
+
+                    <textarea class="textarea-hidden" id="textarea-year"><input type="text" class="Wdate Wdate date_picker_97" id="type-year" onfocus="WdatePicker({dateFmt:'yyyy年',minDate:'2008-2',maxDate:'%y'})"/></textarea>
+                    <textarea class="textarea-hidden" id="textarea-rang"><input id="d4311" class="Wdate Wdate date_picker_97" type="text" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'d4312\')||\'%y-%M-%d\'}'})"/>
+<input id="d4312" class="Wdate Wdate date_picker_97" type="text" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'d4311\')}',maxDate:'%y-%M-%d'})"/></textarea>
+                    <!--联动选项-->
+                    <div class="env_select_template vw_fl select-model" id="jbfx-select">
+                        <span class="env_select_template_span select-show-span">
+                            <input type="text" readonly="readonly" class="select-show-input has-options" style="width:110px;background-position: 100px center;" value="用能"/>
+                        </span>
+                        <div class="env_select_template_env_sel_cnt env-sel-cnt select-option-model">
+                            <ul class="env-sel-cnt-ul" type="normal">
+                                <li value="1" class="env-sel-option env-sel-option-normal env-sel-option-checked"
+                                    check="false"><span
+                                        class="env-sel-option-text select-option">用能</span></li>
+                                <li value="2" class="env-sel-option env-sel-option-normal" check="false"><span
+                                        class="env-sel-option-text select-option">功率</span></li>
+                                <li value="3" class="env-sel-option env-sel-option-normal" check="false"><span
+                                        class="env-sel-option-text select-option">电流</span></li>
+                                <li value="4" class="env-sel-option env-sel-option-normal" check="false"><span
+                                        class="env-sel-option-text select-option">电压</span></li>
+                                <li value="4" class="env-sel-option env-sel-option-normal" check="false"><span
+                                        class="env-sel-option-text select-option">功率因数</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-group-item" style="display: block;">
+                            <ul>
+                                <li>
+                                    <input id="yn-zxyg" class="dropdown-select-all" type="checkbox">
+                                    <label for="yn-zxyg" class="focus"><i></i><span>正向有功</span></label>
+                                </li>
+                                <li>
+                                    <input id="yn-fxyg" class="dropdown-select-all" type="checkbox">
+                                    <label for="yn-fxyg" class="focus"><i></i><span>反向有功</span></label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="checkbox-group-item">
+                            <ul>
+                                <li>
+                                    <input id="gl-zxyg" class="dropdown-select-all" type="checkbox">
+                                    <label for="gl-zxyg" class="focus"><i></i><span>正向有功</span></label>
+                                </li>
+                                <li>
+                                    <input id="gl-fxyg" class="dropdown-select-all" type="checkbox">
+                                    <label for="gl-fxyg" class="focus"><i></i><span>正向有功</span></label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="checkbox-group-item">
+                            <ul>
+                                <li>
+                                    <input id="dl-a" class="dropdown-select-all" type="checkbox">
+                                    <label for="gl-zxyg" class="focus"><i></i><span>A相电流</span></label>
+                                </li>
+                                <li>
+                                    <input id="dl-b" class="dropdown-select-all" type="checkbox">
+                                    <label for="gl-fxyg" class="focus"><i></i><span>B相电流</span></label>
+                                </li>
+                                <li>
+                                    <input id="dl-c" class="dropdown-select-all" type="checkbox">
+                                    <label for="gl-fxyg" class="focus"><i></i><span>C相电流</span></label>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--电压-->
+                        <div class="checkbox-group-item">
+                            <ul>
+                                <li>
+                                    <input id="dy-a" class="dropdown-select-all" type="checkbox">
+                                    <label for="gl-zxyg" class="focus"><i></i><span>A相电压</span></label>
+                                </li>
+                                <li>
+                                    <input id="dy-b" class="dropdown-select-all" type="checkbox">
+                                    <label for="gl-fxyg" class="focus"><i></i><span>B相电压</span></label>
+                                </li>
+                                <li>
+                                    <input id="dy-c" class="dropdown-select-all" type="checkbox">
+                                    <label for="gl-fxyg" class="focus"><i></i><span>C相电压</span></label>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--功率因数-->
+                        <div class="checkbox-group-item">
+                            <ul>
+                                <li>
+                                    <input id="glys" class="dropdown-select-all" type="checkbox">
+                                    <label for="yn-zxyg" class="focus"><i></i><span>总功率因数</span></label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="wv_inquiry" class="search vw_fl"><a class="wv_a3 search_menu_inter inter" title="">查询</a></div>
+                        <!--<label for="c5" class="vw_fl cb-model"><input type="checkbox" id="c5" class="ipt-cb">正向有功</label>-->
+
+
+                    </div>
+                </div>
+                <div class="search-bd pl20">
+                    <div class="spline-column-wrapper" style="position: relative;">
+                        <div id="spline-column">
+                        </div>
+                    </div>
+                    <!--搜索列表-->
+                    <div class="date-list-table">
+                        <table width="100%" cellpadding="0" cellspacing="0" class="">
+                            <tr>
+                                <th>时间</th>
+                                <th>电量_正向有功(KWh)</th>
+                                <th>电量_正向有功(KWh)</th>
+                            </tr>
+                            <tr>
+                                <td>12121</td>
+                                <td>12121</td>
+                                <td>12121</td>
+                            </tr>
+                            <tr>
+                                <td>12121</td>
+                                <td>12121</td>
+                                <td>12121</td>
+                            </tr>
+                            <tr>
+                                <td>12121</td>
+                                <td>12121</td>
+                                <td>12121</td>
+                            </tr>
+                            <tr>
+                                <td>12121</td>
+                                <td>12121</td>
+                                <td>12121</td>
+                            </tr>
+                            <tr>
+                                <td>12121</td>
+                                <td>12121</td>
+                                <td>12121</td>
+                            </tr>
+                            <tr>
+                                <td>12121</td>
+                                <td>12121</td>
+                                <td>12121</td>
+                            </tr>
+                            <tr>
+                                <td>12121</td>
+                                <td>12121</td>
+                                <td>12121</td>
+                            </tr>
+                            <tr>
+                                <td>12121</td>
+                                <td>12121</td>
+                                <td>12121</td>
+                            </tr>
+                            <tr>
+                                <td>12121</td>
+                                <td>12121</td>
+                                <td>12121</td>
+                            </tr>
+                            <tr>
+                                <td>12121</td>
+                                <td>12121</td>
+                                <td>12121</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../common/plugins/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../common/plugins/zTreeStyle/jquery.ztree.all.js"></script>
+<script type="text/javascript" src="../common/plugins/highcharts.js"></script>
+<script type="text/javascript" src="../common/plugins/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="../static/js/fengdian2.js"></script>
+</body>
+</html>

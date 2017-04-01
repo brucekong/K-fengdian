@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/common-290127a303.css">
+    <link rel="stylesheet" href="../static/css/graph.css">
+    <link rel="stylesheet" href="../static/css/fengdian.css">
+    <link type="text/css" rel="stylesheet" href="../common/frame/env_weather/weather-09ba6b4a64.css">
+</head>
+<body>
+<div class="env-left" id="env-left">
+    <div class="collapse-btn"></div>
+    <div class="env-app-logo">LOGO</div>
+    <div id="env_wf_info" class="env-wf-info">
+        <table>
+            <tbody>
+            <tr title="">
+                <td class="wf-icon"
+                    style="background: url(../project/images/partconnect_27x28.png) 50% 50% no-repeat;"></td>
+                <td id="wf_name" class="wf-name"><span style="padding-top:5px;">xx</span></td>
+                <td class="toggle-arrow"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="env_wf_time" class="env-wf-time">
+        <table>
+            <tbody>
+            <tr title="">
+                <td id="wf_time_icon" class="wf-weather-icon weather weather-icon-duoyun" title="多云"></td>
+                <td id="wf_time" class="wf-time">2017-02-13 20:35:49</td>
+                <td class="wf-time-other"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="env_menu" class="env-menu" style="min-height: 550px;">
+        <ul class="menu">
+            <li class="level1 float-menu-wrap" >
+                <a href="javascript:void(0);" show="1"  class="" level="1" priv_type="-1"><span class="level1-icon" style="background:url(../project/images/menu/scada_graph.png) no-repeat;"></span>电</a>
+                <ul class="float-menu-list">
+                    <li><a href="javascript:void(0)"><span class="level1-icon" style="background:url(../project/images/menu/scada_graph.png) no-repeat;"></span>水</a></li>
+                    <li><a href="javascript:void(0)"><span class="level1-icon" style="background:url(../project/images/menu/scada_graph.png) no-repeat;"></span>天然气 </a></li>
+                    <li><a href="javascript:void(0)"><span class="level1-icon" style="background:url(../project/images/menu/scada_graph.png) no-repeat;"></span>油</a></li>
+                    <li><a href="javascript:void(0)"><span class="level1-icon" style="background:url(../project/images/menu/scada_graph.png) no-repeat;"></span>生物质</a></li>
+                    <li><a href="javascript:void(0)"><span class="level1-icon" style="background:url(../project/images/menu/scada_graph.png) no-repeat;"></span>人工煤气</a></li>
+                </ul>
+            </li>
+            <li class="level1">
+                <a show="1" id="graph_view" title="监控画面" class="" level="1" priv_type="-1"
+                   href="javascript:void(0);"><span class="level1-icon" icon="../project/images/menu/scada_graph.png"
+                                                    style="background:url(../project/images/menu/scada_graph.png) no-repeat;"></span>监控画面</a>
+                <ul class="level2 level2-hidden level-hidden" style="display:none;">
+                    <li><a show="1" id="dash_board" title="绩效" class="" level="2" priv_type="-1"
+                           href=""
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_wtglist.png"
+                                                        style="background:url(../project/images/menu/scada_wtglist.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_wtglist_hover.png"></span>绩效</a>
+                    </li>
+                    <li><a show="1" id="INV_list" title="逆变器列表" class="" level="2" priv_type="-1"
+                           href="../v_graph/v_graph.html?first_svg=EnINVListView&amp;showonlytype=bay_inverter&amp;_v=1482198135015"
+                           style="color: rgb(149, 149, 149); display: block;"><span class="level2-icon"
+                                                                                    icon="../project/images/menu/scada_map.png"
+                                                                                    style="background:url(../project/images/menu/scada_map.png) no-repeat;"
+                                                                                    is_hover="false"
+                                                                                    hover_icon="../project/images/menu/scada_map_hover.png"></span>逆变器列表</a>
+                    </li>
+                    </li>
+                    <li><a show="1" id="EnINVListViewNew" title="新逆变器列表" class="" level="2" priv_type="-1"
+                           href="../v_graph/v_graph.html?first_svg=EnINVListViewNew @node::mdm_id&amp;showonlytype=bay_inverter&amp;_v=1482198135015"
+                           style="color: rgb(149, 149, 149); display: block;"><span class="level2-icon"
+                                                                                    icon="../project/images/menu/scada_map.png"
+                                                                                    style="background:url(../project/images/menu/scada_map.png) no-repeat;"
+                                                                                    is_hover="false"
+                                                                                    hover_icon="../project/images/menu/scada_map_hover.png"></span>新逆变器列表</a>
+                    </li>
+                    <li><a show="1" id="EnWeathListView" title="气象站" class="" level="2" priv_type="-1"
+                           href="../v_graph/v_graph.html?first_svg=EnWeathListView @node::mdm_id&amp;showonlytype=BAY_METSTATION&amp;_v=1482198135015"
+                           style="color: rgb(149, 149, 149); display: block;"><span class="level2-icon"
+                                                                                    icon="../project/images/menu/scada_map.png"
+                                                                                    style="background:url(../project/images/menu/scada_map.png) no-repeat;"
+                                                                                    is_hover="false"
+                                                                                    hover_icon="../project/images/menu/scada_map_hover.png"></span>气象站</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="level1"><a show="1" id="alarm_view" title="实时告警" class="current" level="1" priv_type="-1"
+                                  href="../v_alarm/v_alarm.html"><span class="level1-icon"
+                                                                       icon="../project/images/menu/scada_alarm.png"
+                                                                       style="background:url(../project/images/menu/scada_alarm.png) no-repeat;"></span>实时告警</a>
+            </li>
+            <li class="level1"><a show="1" id="warn_view" title="历史告警" class="" level="1" priv_type="-1"
+                                  href="../v_warn/v_warn.html"><span class="level1-icon"
+                                                                     icon="../project/images/menu/scada_warn.png"
+                                                                     style="background:url(../project/images/menu/scada_warn.png) no-repeat;"></span>历史告警</a>
+            </li>
+            <li class="level1"><a show="1" id="sample_view" title="历史数据" class="" level="1" priv_type="-1"
+                                  href="../v_sample/v_sample.html"><span class="level1-icon"
+                                                                         icon="../project/images/menu/scada_sample.png"
+                                                                         style="background:url(../project/images/menu/scada_sample.png) no-repeat;"></span>历史数据</a>
+            </li>
+            <li class="level1"><a show="1" id="curve_view_di" title="历史曲线" class="" level="1" priv_type="-1"
+                                  href="../v_curve_di/v_curve_di.html"><span class="level1-icon"
+                                                                             icon="../project/images/menu/scada_trend.png"
+                                                                             style="background:url(../project/images/menu/scada_trend.png) no-repeat;"></span>历史曲线</a>
+            </li>
+            <li class="level1"><a show="1" id="XY_plot" title="X-Y散点图" class="" level="1" priv_type="-1"
+                                  href="../v_curve/v_curve.html?for_XY=1&amp;_v=1482198135015"><span class="level1-icon"
+                                                                                                     icon="../project/images/menu/scada_plot.png"
+                                                                                                     style="background:url(../project/images/menu/scada_plot.png) no-repeat;"></span>X-Y散点图</a>
+            </li>
+            <li class="level1"><span id="data_export_number" class="data_export_number" style="display:none;"></span><a
+                    show="1" id="export" title="数据导出" class="" level="1" priv_type="-1"
+                    href="../v_dataexporter/v_dataexporter.html"><span class="level1-icon"
+                                                                       icon="../project/images/menu/scada_dataexport.png"
+                                                                       style="background:url(../project/images/menu/scada_dataexport.png) no-repeat;"></span>数据导出</a>
+            </li>
+            <li class="level1"><a show="1" id="video" title="视频监控" class="" level="1" priv_type="-1"
+                                  href="javascript:void(0);"><span class="level1-icon"
+                                                                   icon="../project/images/menu/scada_useradmin.png"
+                                                                   style="background:url(../project/images/menu/scada_useradmin.png) no-repeat;"></span>视频监控</a>
+                <ul class="level2 level2-hidden level-hidden" style="display:none;">
+                    <li><a show="1" id="cam1" title="摄像头1" class="" level="2" priv_type="-1"
+                           href="../v_graph/v_graph.html?first_svg=HIK1&amp;_v=1482198135015" target="_blank"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_em.png"
+                                                        style="background:url(../project/images/menu/scada_em.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_em_hover.png"></span>摄像头1</a>
+                    </li>
+                    <li><a show="1" id="cam2" title="摄像头2" class="" level="2" priv_type="1" href="javascript:void(0);"
+                           style="color:#959595;"><span class="level2-icon"
+                                                        icon="../project/images/menu/scada_em.png"
+                                                        style="background:url(../project/images/menu/scada_em.png) no-repeat;"
+                                                        is_hover="false"
+                                                        hover_icon="../project/images/menu/scada_em_hover.png"></span>摄像头2<span
+                            class="lock" icon="../project/images/menu/scada_menu_lock.png"
+                            style="background:url(../project/images/menu/scada_menu_lock.png) no-repeat;"></span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class="level1"><a show="1" id="CurCentralAlarm" title="当前告警" class="" level="1" priv_type="-1"
+                                  href="../v_graph/v_graph.html?first_svg=centralAlarm siteId=@node::mdm_id&amp;_v=1482198135015"><span
+                    class="level1-icon" icon="../project/images/menu/scada_em.png"
+                    style="background:url(../project/images/menu/scada_em.png) no-repeat;"></span>当前告警</a>
+            </li>
+            <li class="level1"><a show="1" id="HisCentralAlarm" title="全部告警" class="" level="1" priv_type="-1"
+                                  href="../v_graph/v_graph.html?first_svg=centralAlarmHis siteId=@node::mdm_id&amp;_v=1482198135015"><span
+                    class="level1-icon" icon="../project/images/menu/scada_em.png"
+                    style="background:url(../project/images/menu/scada_em.png) no-repeat;"></span>全部告警</a>
+            </li>
+            <li class="level1"><a show="1" id="" title="设置" class="" level="1" priv_type="-1"
+                                  href="javascript:void(0);"><span class="level1-icon"
+                                                                   icon="../project/images/menu/scada_set.png"
+                                                                   style="background:url(../project/images/menu/scada_set.png) no-repeat;"></span>设置</a>
+                <ul class="level2 level2-hidden level-hidden" style="display:none;">
+                    <li><a show="1" id="about_view" title="关于我们" class="" level="2" priv_type="-1"
+                           href="javascript:void(0);" style="color:#959595;"><span class="level2-icon"
+                                                                                   icon="../project/images/menu/scada_about.png"
+                                                                                   style="background:url(../project/images/menu/scada_about.png) no-repeat;"
+                                                                                   is_hover="false"
+                                                                                   hover_icon="../project/images/menu/scada_about_hover.png"></span>关于我们</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="env_left_bottom" class="env-left-bottom">
+        <div id="env_copyright" class="env-copyright">Copyright© 2012-2017 保留所有权利</div>
+    </div>
+
+
+    <div id="envNavTreeDiv" class="envNavTree">
+        <div class="envAllTreeSearchBoxCon">
+            <!--<div class="envAllTreeSearchBox">-->
+            <!--<input type="text" id="key" name="" value="" autocomplete="on" placeholder="">-->
+            <!--<div><i></i></div>-->
+            <!--</div>-->
+        </div>
+        <div class="envNavTreeIe" style="height:534px;">
+            <ul id="envNavTree" class="ztree">
+            </ul>
+        </div>
+        <iframe class="envision_mask" scrolling="no" frameborder="0"></iframe>
+    </div>
+</div>
+<div class="env-right" id="env_right">
+    <div id="env_r_cnt" class="env-r-cnt">
+        <div class="env-web-switch" style="font-size: 15px">
+            <div class="collapse-btn"></div>
+            <div class="env-web-switch-left">
+                <ul class="env-web-switch-ul env-web-switch-left-ul">
+                    <!--<li><span><a en="SCADA" icon="../project/images/menu/scada_em.png" id="ApolloOS" ifshow="1"-->
+                    <!--level="0" openmode="1" parent="priv_type=-1" seq="27" type="2"-->
+                    <!--href="javascript:void(0);"  target="_blank"-->
+                    <!--class="env-web-switch-item env-web-switch-item-selected">1</a></span></li>-->
+                    <!--<li><span><a en="IM" icon="../project/images/menu/scada_em.png" id="ApolloIM" ifshow="1" level="0"-->
+                    <!--openmode="1" parent="priv_type=-1" seq="28" type="2" href="javascript:void(0);"-->
+                    <!--zh="绩效评估" target="_blank" class="env-web-switch-item">绩效评估</a></span></li>-->
+                    <!--<li><span><a en="REPORT" icon="../project/images/menu/scada_em.png" id="ApolloRT" ifshow="1"-->
+                    <!--level="0" openmode="1" parent="priv_type=-1" seq="40" type="2"-->
+                    <!--href="javascript:void(0);" zh="报表" target="_blank"-->
+                    <!--class="env-web-switch-item">报表</a></span></li>-->
+                </ul>
+            </div>
+            <div class="env-web-switch-right">
+                <ul class="env-web-switch-ul env-web-switch-right-ul">
+                    <li><span class="env-web-switch-user env-web-switch-user-drop"><span>xxx</span></span>
+                        <div class="sub" style="display: none;">
+                            <ul>
+                                <!--<li><a displayname="信息维护"-->
+                                <!--href="http://apollo.envisioncn.com/portal/index.html?logout=logout&amp;return_url=http://apollo.envisioncn.com/v_graph/v_graph.html?first_svg=JYSN%2FEnFarmDashboard%20JYSN&amp;_v=1482198135015&amp;from_portal=1"-->
+                                <!--zh="信息维护">信息维护</a></li>-->
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="env-web-switch-vert"><span></span></li>
+                    <li><span class="env-web-switch-logout">注销</span></li>
+                </ul>
+            </div>
+            <div class="env-web-switch-clear"></div>
+        </div>
+
+        <div id="center" style="visibility: visible; min-width: 1079px;">
+            <div id="svg_content_svg_name" class="svg_content" style="visibility: visible;  display: block;">
+                <div class="spline-column-wrapper">
+                    <div class="chart-filter chart-title tab_chart_title">
+                        <!--<ul class="range_switch_btns">-->
+                            <!--<li style="display:none;">范围：</li>-->
+                            <!--<li class="range_switch_btn btn_on"-->
+                                <!--onclick="graph_curve_extend.set_curve_range.call(this, 'd')">日-->
+                            <!--</li>-->
+                            <!--<li class="range_switch_btn" onclick="graph_curve_extend.set_curve_range.call(this, 'w')">-->
+                                <!--周-->
+                            <!--</li>-->
+                            <!--<li class="range_switch_btn" onclick="graph_curve_extend.set_curve_range.call(this, 'M')">-->
+                                <!--月-->
+                            <!--</li>-->
+                            <!--<li class="range_switch_btn" onclick="graph_curve_extend.set_curve_range.call(this, 'y')">-->
+                                <!--年-->
+                            <!--</li>-->
+                            <!--<li class="range_switch_btn" onclick="graph_curve_extend.set_curve_range.call(this, 'all')">-->
+                                <!--总-->
+                            <!--</li>-->
+                            <!--<li class="left_right_bth left_btn"-->
+                                <!--onclick="graph_curve_extend.set_curve_range.call(this, null, -1)"></li>-->
+                            <!--<li class="now_time_range"><input type="text" class="date_picker_97" readonly="readonly"-->
+                                                              <!--style="width: 97px;"-->
+                                                              <!--onclick="WdatePicker({readOnly:true, maxDate: '2017-2-16',dateFmt:'yyyy-MM-dd', onpicked: function(){graph_curve_extend.date_click_event.call(this, 'd')}})"-->
+                                                              <!--value="2017-02-16"></li>-->
+                            <!--<li class="left_right_bth right_btn range_disable"-->
+                                <!--onclick="graph_curve_extend.set_curve_range.call(this, null, 1)"-->
+                                <!--style="position: static; margin-left: 0px;"></li>-->
+                        <!--</ul>-->
+                        <h2>发电量曲线</h2>
+                    </div>
+                    <div id="spline-column">
+                    </div>
+                </div>
+                <div class="spline-wrapper">
+                    <ul class="spline-filter-tab">
+                        <li><a href="">条件1</a></li>
+                        <li><a href="">条件2</a></li>
+                        <li><a href="">条件3</a></li>
+                        <li><a href="">条件4</a></li>
+                    </ul>
+                    <div id="highcharts2">
+                    </div>
+
+                </div>
+                <div class="circle-wrapper">
+                    <div id="highcharts-circle">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript" src="../common/plugins/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../common/plugins/zTreeStyle/jquery.ztree.all.js"></script>
+    <script type="text/javascript" src="../common/plugins/highcharts.js"></script>
+<script type="text/javascript" src="../common/plugins/My97DatePicker/WdatePicker.js"></script>
+    <!--<script type="text/javascript" src="../static/js/svg2curve.js"></script>-->
+    <script type="text/javascript" src="../static/js/fengdian.js"></script>
+</body>
+</html>
